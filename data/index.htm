@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="Titel">Dashboard</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="content">
+    <iframe name="dummy" style="display:none;"></iframe>
+    <div class="bgimg">
+      <hr>
+      <h1 style="text-align:center" name="DevName">DevName</h1>
+      <hr>
+    </div>   
+
+    <div>
+      <table style="width: 100%" BORDER="0">
+        <tr>
+          <td style="text-align:right">Uptime:</td>
+          <td style="text-align:left" name="Uptime">?</td>
+          <td style="width: 50px; text-align:right"><input type="image" src="config.png" onclick="ConfigDiv()" style="width: 20px;"></td>
+        </tr>
+      </table>
+      <hr>
+      <div id="ConfigDiv" style="display: none;">
+        <form action="config.post" method="post" target="dummy">
+    
+          <table style="width: 99%" BORDER="0">
+            <tr>
+              <td style="width: 90px;text-align:center">IP:</td>
+              <td style="width: 70px;"name="LOCAL_IP">10.1.2.5</td>
+              <td style="text-align:right"> MAC:</td>
+              <td style="width: 120px;text-align:right" name="MAC"> 45:sd:sd:sd:54:ss</td>
+            </tr>
+            <tr>
+              <td style="text-align:center" >SSID:</td>
+              <td name="SSID"></td>
+            </tr>
+            </table>
+    
+            <table style="width: 99%" BORDER="0">
+            <tr>
+              <td style="width: 150px;text-align:right">Device Name:</td>
+              <td><input type="text" id="DevNameInput" name="DevName" value=""></td>
+              <td style="width: 150px;"> </td>
+            </tr>
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime Door:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM0" name="RunTimeM0" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr>
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime East:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM1" name="RunTimeM1" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr>    
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime South Left:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM2" name="RunTimeM2" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr>
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime South Center:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM3" name="RunTimeM3" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr> 
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime South Right:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM4" name="RunTimeM4" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr> 
+            <tr>
+              <td style="width: 150px;text-align:right">Runtime West:</td>
+              <td><input type="number" min="1000" max="20000" id="RunTimeM5" name="RunTimeM5" value=""></td>
+              <td style="text-align:left">ms</td>
+            </tr>             
+            
+          </table>
+          <br>
+          <table style="width: 100%">
+            <tr>
+            <td style="width: 120px;text-align:center"><button type="submit" >Save</button></td>
+            </tr>
+          </table> 
+        </form>
+        <hr>
+        </div>
+
+
+      <form action="motors.post" method="post" target="dummy">
+      <table style="width: 100%" BORDER="0">
+        <tr>
+          <td style="width: 80px; text-align:center">Door:</td>
+          <td style="width: 250px"><input style="width: 250px" type="range" id="M0set" name="M0set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M0current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">East:</td>
+          <td><input style="width: 250px" type="range" id="M1set" name="M1set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M1current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">South Left:</td>
+          <td><input style="width: 250px" type="range" id="M2set" name="M2set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M2current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">South Center:</td>
+          <td><input style="width: 250px" type="range" id="M2set" name="M3set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M3current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">South Right:</td>
+          <td><input style="width: 250px" type="range" id="M4set" name="M4set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M4current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">West:</td>
+          <td><input style="width: 250px" type="range" id="M5set" name="M5set" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="M5current">50</td>
+        </tr>
+        <tr>
+          <td style="text-align:center">Angel:</td>:</td>
+          <td><input style="width: 250px" type="range" id="AngelSet" name="AngelSet" onchange="this.form.submit()"></td>
+          <td style="text-align:center" name="AngelCurrent">50</td>
+        </tr>
+
+
+      </table>
+      </form>
+      <hr>
+    <form action="homing.post" method="post" target="dummy">
+      <table style="width: 100%" BORDER="0">
+        <tr>
+          <td style="text-align:center"><button type="submit" >Do Homing</button></td>
+        </tr>
+      </table>
+    </form>
+
+
+    </div>
+
+  
+  <footer div class="foot">Powered by mir selbst (c)2024</div>
+  </footer>
+  
+</body>
+</html>
