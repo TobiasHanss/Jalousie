@@ -1,7 +1,7 @@
 #include "motor.h"
 
 #define TimerTick_ms 50
-#define RestTimeTick 2 //Ticks
+#define RestTimeTick 4 //Ticks
 
 
 CMotor::CMotor(const char * functionName, uint32_t runTime_ms, uint32_t IODown, uint32_t IOUp)

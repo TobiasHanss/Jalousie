@@ -48,6 +48,7 @@ void WebIf::begin(void)
     
     m_oServer->on("/config.post", HTTP_POST ,std::bind(&WebIf::onConfigPost,this));
     m_oServer->on("/motors.post", HTTP_POST ,std::bind(&WebIf::onMotorsPost,this));
+    m_oServer->on("/set",         HTTP_GET ,std::bind(&WebIf::onMotorsPost,this));
     m_oServer->on("/homing.post", HTTP_POST ,std::bind(&WebIf::doHomingPost,this));
 
     m_oServer->on("/data.json", std::bind(&WebIf::onRequestData,this));
