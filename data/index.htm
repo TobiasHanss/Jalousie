@@ -21,8 +21,12 @@
     <div>
       <table style="width: 100%" BORDER="0">
         <tr>
-          <td style="text-align:right">Uptime:</td>
-          <td style="text-align:left" name="Uptime">?</td>
+          <td style="text-align:center">Time:</td>
+          <td style="text-align:center" name="Time">?</td>
+          <td style="text-align:center">Uptime:</td>
+          <td style="text-align:center" name="Uptime">?</td>
+          <td style="text-align:center">Temp 1: </td>
+          <td style="text-align:center" name="TempSens1">?</td>
           <td style="width: 50px; text-align:right"><input type="image" src="config.png" onclick="ConfigDiv()" style="width: 20px;"></td>
         </tr>
       </table>
@@ -90,49 +94,86 @@
         </form>
         <hr>
         </div>
+<!--
+        <form action="motors.post" method="post" target="dummy">
+          <table style="width: 100%" BORDER="0">
+            <tr>
+              <td style="width: 80px; text-align:center">Door:</td>
+              <td style="width: 250px"><input style="width: 250px" type="range" id="M0set" name="M0set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M0current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">East:</td>
+              <td><input style="width: 250px" type="range" id="M1set" name="M1set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M1current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">South Left:</td>
+              <td><input style="width: 250px" type="range" id="M2set" name="M2set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M2current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">South Center:</td>
+              <td><input style="width: 250px" type="range" id="M3set" name="M3set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M3current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">South Right:</td>
+              <td><input style="width: 250px" type="range" id="M4set" name="M4set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M4current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">West:</td>
+              <td><input style="width: 250px" type="range" id="M5set" name="M5set" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="M5current">50</td>
+            </tr>
+            <tr>
+              <td style="text-align:center">Angel:</td>
+              <td><input style="width: 250px" type="range" id="AngelSet" name="AngelSet" onchange="this.form.submit()"></td>
+              <td style="text-align:center" name="AngelCurrent">50</td>
+            </tr>
+    
+    
+          </table>
+          </form>
+ -->           
+        
+ <form action="motors.post" method="post" target="dummy">
+  <table style="width: 100%; border-collapse: collapse;" BORDER="0">
+    <tr>
+      <!-- Spalten für Labels -->
+      <td style="width: 80px; text-align: center;">Door:</td>
+      <td style="width: 80px; text-align: center;">East:</td>
+      <td style="width: 80px; text-align: center;">South Left:</td>
+      <td style="width: 80px; text-align: center;">South Center:</td>
+      <td style="width: 80px; text-align: center;">South Right:</td>
+      <td style="width: 80px; text-align: center;">West:</td>
+      <td style="width: 80px; text-align: center;">Angel:</td>
+    </tr>
+    </tr>
+      <td><input style="width: 40px" type="range" id="M0set" name="M0set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="M1set" name="M1set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="M2set" name="M2set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="M2set" name="M3set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="M4set" name="M4set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="M5set" name="M5set" onchange="this.form.submit()"></td>
+      <td><input style="width: 40px" type="range" id="AngelSet" name="AngelSet" onchange="this.form.submit()"></td>
+    <tr>    
+    <tr>
+      <!-- Spalten für aktuelle Werte -->
+      <td style="text-align: center;" name="M0current">50</td>
+      <td style="text-align: center;" name="M1current">50</td>
+      <td style="text-align: center;" name="M2current">50</td>
+      <td style="text-align: center;" name="M3current">50</td>
+      <td style="text-align: center;" name="M4current">50</td>
+      <td style="text-align: center;" name="M5current">50</td>
+      <td style="text-align: center;" name="AngelCurrent">50</td>
+    </tr>
+  </table>
+</form>  
 
 
-      <form action="motors.post" method="post" target="dummy">
-      <table style="width: 100%" BORDER="0">
-        <tr>
-          <td style="width: 80px; text-align:center">Door:</td>
-          <td style="width: 250px"><input style="width: 250px" type="range" id="M0set" name="M0set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M0current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">East:</td>
-          <td><input style="width: 250px" type="range" id="M1set" name="M1set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M1current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">South Left:</td>
-          <td><input style="width: 250px" type="range" id="M2set" name="M2set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M2current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">South Center:</td>
-          <td><input style="width: 250px" type="range" id="M2set" name="M3set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M3current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">South Right:</td>
-          <td><input style="width: 250px" type="range" id="M4set" name="M4set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M4current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">West:</td>
-          <td><input style="width: 250px" type="range" id="M5set" name="M5set" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="M5current">50</td>
-        </tr>
-        <tr>
-          <td style="text-align:center">Angel:</td>:</td>
-          <td><input style="width: 250px" type="range" id="AngelSet" name="AngelSet" onchange="this.form.submit()"></td>
-          <td style="text-align:center" name="AngelCurrent">50</td>
-        </tr>
-
-
-      </table>
-      </form>
+        
       <hr>
     <form action="homing.post" method="post" target="dummy">
       <table style="width: 100%" BORDER="0">

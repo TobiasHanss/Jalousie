@@ -148,7 +148,9 @@ void WebIf::onRequestData(void)
     }
 
     oJSON["AngelCurrent"] = Motor[0]->getAngel();
-    oJSON["TempSens1"] = tempSensor1;
+    oJSON["AngelSet"] = Motor[0]->getAngel();
+    oJSON["TempSens1"] = String(tempSensor1) + "°C";
+    oJSON["Time"] = timeClient.getFormattedTime();
 
     String buf;
     serializeJson(oJSON,buf);

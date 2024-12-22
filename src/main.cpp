@@ -11,7 +11,7 @@
 #include "motor.h"
 #include <OneWire.h>
 #include <DallasTemperature.h>
-
+#include <WiFiUdp.h>
 
 //CSettings Settings("/settings.json",1024);
 CSettings Config("/config.json",600);
@@ -22,6 +22,9 @@ CMotor  *Motor[NO_OF_MOTORS];
 
 OneWire oneWire(23); // Bus on Pin23
 DallasTemperature sensors(&oneWire);// Pass our oneWire reference to Dallas Temperature.
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP);
 
 bool bInSetupMode = false;
 volatile bool bInitDone = false;
@@ -116,7 +119,9 @@ void setup()
   Serial.println("Starting... ");
   
   pinMode(GREEN_LED, OUTPUT);  
- 
+  pinMode(ALL_UP, INPUT_PULLUP);
+  pinMode(ALL_DOWN, INPUT_PULLUP);
+
   Connect2LocalWifi();
  
   WebInterface.begin();
@@ -134,10 +139,10 @@ void setup()
     Motor[i]->begin();
   }
 
-  pinMode(ALL_UP, INPUT_PULLUP);
-  pinMode(ALL_DOWN, INPUT_PULLUP);
-
   sensors.begin();
+
+  timeClient.begin();
+  timeClient.setTimeOffset(60*60); //Add an hour to correct for time zone
 }
 
 
@@ -297,6 +302,14 @@ void loop()
     {
       tempSensor1 = -127;
     }
+
+    if (WLAN_OK)
+    {
+      timeClient.update();
+      //Serial.println(timeClient.getFormattedTime());
+    }
+
+
   }
    delay (20);
 }

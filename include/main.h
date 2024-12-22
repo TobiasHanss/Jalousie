@@ -1,6 +1,9 @@
 #ifndef __MAIN__
 #define __MAIN__
 
+#include <NTPClient.h>
+
+
 #define NO_OF_MOTORS 6
 
 #define NO_OF_INPUT 2
@@ -26,5 +29,5 @@
 #define GREEN_LED   32
 
 extern int tempSensor1;
-
+extern NTPClient timeClient;
 #endif

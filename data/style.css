@@ -8,7 +8,6 @@ html, body {
   font-size: 12px;
   }
   
-
   div{
     background-color: #f8f9ff;
   }
@@ -33,10 +32,19 @@ html, body {
     border: 1px solid #555;
     background-color: aqua;
   }
+
   input[type=number]{
     border: 1px solid rgb(180, 246, 255);
     background-color: #f8f9ff;
   }
+
+  input[type=range] {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    vertical-align: middle;
+    accent-color: #33bdef;
+
+ }
 
   .bgimg  {
     background-image: url("banner.jpeg");
@@ -124,6 +132,5 @@ text-shadow:0px -1px 0px #5b6178;
 input {
   border-radius:5px;
 } 
-
 
 
